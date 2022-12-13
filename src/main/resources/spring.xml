@@ -21,10 +21,11 @@
     </bean>
 
     <!--SessionFactory配置-->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" destroy-method="destroy">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" destroy-method="destroy">
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
+                <value>MoviesEntity.hbm.xml</value>
                 <value>ManagersEntity.hbm.xml</value>
             </list>
         </property>
@@ -32,8 +33,14 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.allow_update_outside_transaction">true</prop>
+
             </props>
         </property>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
     <bean id="userDao" class="dao.ManagersDao">
@@ -50,6 +57,18 @@
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="moviesDao" class="dao.MoviesDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="moviesService" class="service.MoviesService">
+        <property name="moviesDao" ref="moviesDao"></property>
+    </bean>
+
+    <bean id="moviesAction" class="action.MoviesAction">
+        <property name="moviesService" ref="moviesService"></property>
     </bean>
     <!-- 定义事务通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">

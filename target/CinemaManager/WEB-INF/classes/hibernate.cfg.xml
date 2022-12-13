@@ -2,8 +2,11 @@
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD//EN"
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
+
   <session-factory>
+
     <property name="connection.url">jdbc:mysql://localhost:3306/cinema_manager</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
       <property name="connection.username">root</property>
@@ -16,9 +19,6 @@
       <mapping resource="MoviesEntity.hbm.xml"/>
       <mapping resource="NewsEntity.hbm.xml"/>
       <mapping resource="TypesEntity.hbm.xml"/>
-      <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
-
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>

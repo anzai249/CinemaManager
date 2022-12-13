@@ -3,7 +3,10 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "movies", schema = "cinema_manager", catalog = "")
+@Table(name = "movies", schema = "cinema_manager")
+@NamedQueries({
+        @NamedQuery(name = "MoviesEntity.findAll", query = "select m from MoviesEntity m")
+})
 public class MoviesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
