@@ -30,7 +30,7 @@
                     <td>${name}</td>
                     <td>${info}</td>
                     <td>${type}</td>
-                    <td><a href="movies-delete?id=${id}">删除</a></td>
+                    <td><a href="movies-delete?id=${id}" onClick="return confirm('确定删除?');">删除</a></td>
                 </tr>
             </s:iterator>
         </table>

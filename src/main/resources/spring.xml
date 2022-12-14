@@ -27,6 +27,8 @@
             <list>
                 <value>MoviesEntity.hbm.xml</value>
                 <value>ManagersEntity.hbm.xml</value>
+                <value>NewsEntity.hbm.xml</value>
+                <value>TypesEntity.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -63,12 +65,21 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
+    <bean id="typesDao" class="dao.TypesDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
     <bean id="moviesService" class="service.MoviesService">
         <property name="moviesDao" ref="moviesDao"></property>
     </bean>
 
+    <bean id="typesService" class="service.TypesService">
+        <property name="typesDao" ref="typesDao"></property>
+    </bean>
+
     <bean id="moviesAction" class="action.MoviesAction">
         <property name="moviesService" ref="moviesService"></property>
+        <property name="typesService" ref="typesService"></property>
     </bean>
     <!-- 定义事务通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
