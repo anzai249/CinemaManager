@@ -1,6 +1,7 @@
 package service;
 
 import dao.MoviesDao;
+import model.MoviesEntity;
 
 import java.util.List;
 
@@ -11,10 +12,14 @@ public class MoviesService {
         this.moviesDao = moviesDao;
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         moviesDao.delete(id);
     }
-    public List<model.MoviesEntity> getAll(){
+    public void saveOrUpdate(MoviesEntity movie){
+        moviesDao.saveOrUpdate(movie);
+    }
+
+    public List<model.MoviesEntity> getAll() {
         return moviesDao.getAll();
     }
 }

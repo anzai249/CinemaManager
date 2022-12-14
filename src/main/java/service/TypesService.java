@@ -12,7 +12,7 @@ public class TypesService {
         return typesDao;
     }
 
-    public List<TypesEntity> getAll(){
+    public List<TypesEntity> getAll() {
         return typesDao.getAll();
     }
 

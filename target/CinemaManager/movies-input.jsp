@@ -13,8 +13,8 @@
 </head>
 <body>
 <s:form action="movies-save" method="post">
-    <s:textfield name = "Name" label="电影名"></s:textfield>
-    <s:textfield name = "Info" label="信息"></s:textfield>
+    <s:textfield name="Name" label="电影名"></s:textfield>
+    <s:textfield name="Info" label="信息"></s:textfield>
     <s:select list="#request.types" listKey="id" listValue="name" name="types.name" label="类别"></s:select>
     <s:submit></s:submit>
 </s:form>

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Struts。xml的配置文件 -->
     <!-- 所有匹配*.action的请求都由struts2处理 -->
-    <constant name="struts.action.extension" value="action,," /> <!-- 是否启用开发模式 -->
-    <constant name="struts.devMode" value="true" />
+    <constant name="struts.action.extension" value="action,,"/> <!-- 是否启用开发模式 -->
+    <constant name="struts.devMode" value="true"/>
     <package name="default" extends="struts-default" namespace="/">
+        <interceptors>
+            <interceptor-stack name="sshStack">
+                <interceptor-ref name="paramsPrepareParamsStack">
+                    <param name="prepare.alwaysInvokePrepare">false</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="sshStack"></default-interceptor-ref>
         <!-- 如果不指定method，那么默认方法是execute-->
         <!--name:Action类的名字，具有唯一性，页面上通过name来访问Action类-->
         <action name="test" class="test" method="test">

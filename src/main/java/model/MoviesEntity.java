@@ -77,4 +77,5 @@ public class MoviesEntity {
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
     }
+
 }

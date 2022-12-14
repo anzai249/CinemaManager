@@ -1,6 +1,7 @@
 package dao;
 
 import dao.BaseDao.*;
+import model.MoviesEntity;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ public class MoviesDao extends dao.BaseDao{
     public List<model.MoviesEntity> getAll(){
         String hql = "FROM model.MoviesEntity";
         return getSession().createQuery(hql).list();
+    }
+    public void saveOrUpdate(MoviesEntity movie){
+        getSession().saveOrUpdate(movie);
     }
 }
