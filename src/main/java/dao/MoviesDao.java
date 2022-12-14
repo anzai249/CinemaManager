@@ -1,19 +1,12 @@
 package dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import dao.BaseDao.*;
+import model.MoviesEntity;
 
 import java.util.List;
 
-public class MoviesDao {
+public class MoviesDao extends dao.BaseDao{
 
-    private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
-    }
-    public Session getSession(){
-        return this.sessionFactory.getCurrentSession();
-    }
 
     public void delete(Integer id){
         String hql = "DELETE FROM model.MoviesEntity e WHERE e.id = ?1";
@@ -22,5 +15,8 @@ public class MoviesDao {
     public List<model.MoviesEntity> getAll(){
         String hql = "FROM model.MoviesEntity";
         return getSession().createQuery(hql).list();
+    }
+    public void saveOrUpdate(MoviesEntity movie){
+        getSession().saveOrUpdate(movie);
     }
 }

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta charset="UTF-8">
@@ -12,14 +12,18 @@
 
 <body>
 <div id='app' class="container">
-    <img src="./bg.jpg" />
+    <img src="./bg.jpg"/>
     <div class="panel">
         <div class="content login">
             <div class='form' id="fromLogin">
 
                 <template v-if='active === "login"'>
-                    <div class="input"><input :class='{ hasValue: loginForm.Username }' v-model='loginForm.Username' type="text" name="Username" id="username" /><label for="username">用户名</label></div>
-                    <div class="input"><input :class='{ hasValue: loginForm.Password }' v-model='loginForm.Password' type="password" name="Password" id="Password" /><label for="Password">密码</label></div>
+                    <div class="input"><input :class='{ hasValue: loginForm.Username }' v-model='loginForm.Username'
+                                              type="text" name="Username" id="username"/><label
+                            for="username">用户名</label></div>
+                    <div class="input"><input :class='{ hasValue: loginForm.Password }' v-model='loginForm.Password'
+                                              type="password" name="Password" id="Password"/><label
+                            for="Password">密码</label></div>
                 </template>
 
                 <button type="submit" @click='submit'>登录</button>
@@ -34,10 +38,10 @@
         el: '#app',
         data: {
             active: 'login',
-            loginForm: { Username: '', Password: '', },
+            loginForm: {Username: '', Password: '',},
         },
         methods: {
-            go (type) {
+            go(type) {
                 this.active = type
             },
             submit() {
@@ -46,7 +50,8 @@
                 }
             }
         },
-        beforeMount () {}
+        beforeMount() {
+        }
     })
 </script>
 

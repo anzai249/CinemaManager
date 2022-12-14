@@ -1,20 +1,31 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
+import model.MoviesEntity;
 import org.apache.struts2.interceptor.RequestAware;
 import service.MoviesService;
+import service.TypesService;
 
 import java.util.Map;
 
-public class MoviesAction extends ActionSupport implements RequestAware {
+public class MoviesAction extends ActionSupport implements RequestAware, ModelDriven<MoviesEntity>, Preparable {
+
     private MoviesService moviesService;
+    private TypesService typesService;
+    private Map<String, Object> request;
 
     public void setMoviesService(MoviesService moviesService) {
         this.moviesService = moviesService;
     }
 
-    public String list(){
-        request.put("movies",moviesService.getAll());
+    public void setTypesService(TypesService typesService) {
+        this.typesService = typesService;
+    }
+
+    public String list() {
+        request.put("movies", moviesService.getAll());
         return "list";
     }
 
@@ -24,13 +35,34 @@ public class MoviesAction extends ActionSupport implements RequestAware {
         this.id = id;
     }
 
-    public String delete(){
+    public String delete() {
         moviesService.delete(id);
         return SUCCESS;
     }
 
-    private Map<String,Object> request;
+    public String input() {
+        request.put("types", typesService.getAll());
+        return INPUT;
+    }
+
+    public String save(){
+        moviesService.saveOrUpdate(model);
+        return SUCCESS;
+    }
+    public void prepareSave(){
+        model = new MoviesEntity();
+    }
     public void setRequest(Map<String, Object> arg0) {
         this.request = arg0;
+    }
+
+    public MoviesEntity getModel() {
+        return model;
+    }
+
+    private MoviesEntity model;
+
+    public void prepare() throws Exception {
+
     }
 }

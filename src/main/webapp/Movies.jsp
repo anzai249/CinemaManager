@@ -12,28 +12,28 @@
     <title>所有电影</title>
 </head>
 <body>
-    <s:if test="#request.movies == null || #request.movies.size() == 0">
-        没有电影
-    </s:if>
-    <s:else>
-        <table border="1" cellpadding="10" cellspacing="0">
+<s:if test="#request.movies == null || #request.movies.size() == 0">
+    没有电影
+</s:if>
+<s:else>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <td>ID</td>
+            <td>名称</td>
+            <td>介绍</td>
+            <td>类别</td>
+            <td>操作</td>
+        </tr>
+        <s:iterator value="#request.movies">
             <tr>
-                <td>ID</td>
-                <td>名称</td>
-                <td>介绍</td>
-                <td>类别</td>
-                <td>操作</td>
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${info}</td>
+                <td>${type}</td>
+                <td><a href="movies-delete?id=${id}" onClick="return confirm('确定删除?');">删除</a></td>
             </tr>
-            <s:iterator value="#request.movies">
-                <tr>
-                    <td>${id}</td>
-                    <td>${name}</td>
-                    <td>${info}</td>
-                    <td>${type}</td>
-                    <td><a href="movies-delete?id=${id}">删除</a></td>
-                </tr>
-            </s:iterator>
-        </table>
-    </s:else>
+        </s:iterator>
+    </table>
+</s:else>
 </body>
 </html>
