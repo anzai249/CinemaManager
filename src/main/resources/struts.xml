@@ -15,6 +15,7 @@
         <action name="movies-*" class="moviesAction" method="{1}">
             <!-- 配置结果集 :name属性的值一定要与execute方法的返回值一致-->
             <result name="list">Movies.jsp</result>
+            <result name="success" type="redirect">/movies-list</result>
         </action>
     </package>
 </struts>

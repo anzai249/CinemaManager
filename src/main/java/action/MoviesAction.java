@@ -15,12 +15,22 @@ public class MoviesAction extends ActionSupport implements RequestAware {
 
     public String list(){
         request.put("movies",moviesService.getAll());
-        System.out.println(moviesService.getAll());
         return "list";
     }
+
+    private Integer id;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String delete(){
+        moviesService.delete(id);
+        return SUCCESS;
+    }
+
     private Map<String,Object> request;
     public void setRequest(Map<String, Object> arg0) {
-        System.out.println(arg0);
         this.request = arg0;
     }
 }

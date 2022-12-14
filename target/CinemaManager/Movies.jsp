@@ -22,6 +22,7 @@
                 <td>名称</td>
                 <td>介绍</td>
                 <td>类别</td>
+                <td>操作</td>
             </tr>
             <s:iterator value="#request.movies">
                 <tr>
@@ -29,6 +30,7 @@
                     <td>${name}</td>
                     <td>${info}</td>
                     <td>${type}</td>
+                    <td><a href="movies-delete?id=${id}">删除</a></td>
                 </tr>
             </s:iterator>
         </table>

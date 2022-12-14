@@ -11,8 +11,10 @@ public class MoviesService {
         this.moviesDao = moviesDao;
     }
 
+    public void delete(Integer id){
+        moviesDao.delete(id);
+    }
     public List<model.MoviesEntity> getAll(){
-        System.out.println(moviesDao.getAll());
         return moviesDao.getAll();
     }
 }
