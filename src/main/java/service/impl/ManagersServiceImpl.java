@@ -15,8 +15,11 @@ public class ManagersServiceImpl implements ManagersService {
         this.managersDao = managersDao;
     }
 
-    public ManagersEntity getName(int id) {
-        ManagersEntity managersEntity = managersDao.getName(id);
-        return managersEntity;
+    public String getName(int id) {
+        return managersDao.getName(id);
+    }
+
+    public String getPass(int id) {
+        return managersDao.getPass(id);
     }
 }

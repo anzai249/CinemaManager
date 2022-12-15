@@ -4,6 +4,7 @@ import model.ManagersEntity;
 
 public interface ManagersService {
 
-    public ManagersEntity getName(int id);
+    public String getName(int id);
+    public String getPass(int id);
 
 }

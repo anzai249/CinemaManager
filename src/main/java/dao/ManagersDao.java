@@ -1,12 +1,17 @@
 package dao;
 import model.ManagersEntity;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-public class ManagersDao extends HibernateDaoSupport {
+public class ManagersDao extends BaseDao{
 
-    public ManagersEntity getName(int id){
-        String hql = "from model.ManagersEntity";
-        return this.getHibernateTemplate().get(ManagersEntity.class,id);
+    public String getName(int id){
+        String hql = "FROM model.ManagersEntity.name WHERE model.ManagersEntity.id = ?1";
+        System.out.println(getSession().createQuery(hql).setInteger(1,id).toString());
+        return getSession().createQuery(hql).setInteger(1,id).toString();
+    }
+    public String getPass(Integer id){
+        String hql = "FROM model.ManagersEntity.password WHERE model.ManagersEntity.id = ?1";
+        System.out.println(getSession().createQuery(hql).setInteger(1,id).toString());
+        return getSession().createQuery(hql).setInteger(1,id).toString();
     }
 
 }
