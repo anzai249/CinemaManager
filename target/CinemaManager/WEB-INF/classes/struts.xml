@@ -28,5 +28,9 @@
             <result name="success" type="redirect">/movies-list</result>
             <result name="input">movies-input.jsp</result>
         </action>
+        <action name="login" class="testAction" method="{1}">
+            <result name="LOGIN-SUCCESS" type="redirect">/movies-list</result>
+            <result name="LOGIN-FAILED">login.jsp</result>
+        </action>
     </package>
 </struts>

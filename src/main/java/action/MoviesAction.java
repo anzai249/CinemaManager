@@ -45,13 +45,27 @@ public class MoviesAction extends ActionSupport implements RequestAware, ModelDr
         return INPUT;
     }
 
-    public String save(){
+    public void prepareInput() {
+        if (id == null) {
+            model = new MoviesEntity();
+        }else{
+            model = moviesService.get(id);
+        }
+    }
+
+    public String save() {
         moviesService.saveOrUpdate(model);
         return SUCCESS;
     }
-    public void prepareSave(){
-        model = new MoviesEntity();
+
+    public void prepareSave() {
+        if (id == null) {
+            model = new MoviesEntity();
+        }else{
+            model = moviesService.get(id);
+        }
     }
+
     public void setRequest(Map<String, Object> arg0) {
         this.request = arg0;
     }

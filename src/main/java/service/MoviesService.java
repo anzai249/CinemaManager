@@ -22,4 +22,8 @@ public class MoviesService {
     public List<model.MoviesEntity> getAll() {
         return moviesDao.getAll();
     }
+
+    public MoviesEntity get(Integer id) {
+        return moviesDao.get(id);
+    }
 }

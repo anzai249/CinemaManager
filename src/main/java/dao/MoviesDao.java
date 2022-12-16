@@ -19,4 +19,8 @@ public class MoviesDao extends dao.BaseDao{
     public void saveOrUpdate(MoviesEntity movie){
         getSession().saveOrUpdate(movie);
     }
+
+    public MoviesEntity get(Integer id){
+        return (MoviesEntity) getSession().get(MoviesEntity.class,id);
+    }
 }
