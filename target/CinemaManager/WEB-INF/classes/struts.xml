@@ -25,8 +25,10 @@
         <action name="movies-*" class="moviesAction" method="{1}">
             <!-- 配置结果集 :name属性的值一定要与execute方法的返回值一致-->
             <result name="list">Movies.jsp</result>
+            <result name="customer">movies-customer.jsp</result>
             <result name="success" type="redirect">/movies-list</result>
             <result name="input">movies-input.jsp</result>
+            <result name="" type="redirect">/movies-list</result>
         </action>
         <action name="login" class="testAction" method="{1}">
             <result name="LOGIN-SUCCESS" type="redirect">/movies-list</result>

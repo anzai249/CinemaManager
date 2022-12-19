@@ -9,10 +9,25 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>所有电影</title>
+    <title>电影管理系统</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div id="topcontainer">
+    <header class="top">
+        <div class="top_name">电影管理系统</div>
+    </header>
+    <div class="nav">
+        <ul>
+            <li>电影列表</li>
+            <li>新闻列表</li>
+            <li>登录</li>
+        </ul>
+    </div>
+    <hr style="margin: 5px;">
+    <div class="content"></div>
+    <footer class="bottom"/>
+</div>
 <div id='app' class="container" style="color: #fff; border-radius: 5px">
     <s:if test="#request.movies == null || #request.movies.size() == 0">
         没有电影
@@ -25,7 +40,6 @@
                 <td>名称</td>
                 <td>介绍</td>
                 <td>类别</td>
-                <td>操作</td>
             </tr>
             </thead>
             <tbody>
@@ -35,8 +49,6 @@
                     <td>${name}</td>
                     <td>${info}</td>
                     <td>${type}</td>
-                    <td><a href="movies-delete?id=${id}" onClick="return confirm('确定删除?');">删除</a>&nbsp;<a
-                            href="movies-input?id=${id}">编辑</a></td>
                 </tr>
             </s:iterator>
             </tbody>

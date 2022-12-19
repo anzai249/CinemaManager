@@ -9,7 +9,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: miaowu;
     background: linear-gradient(45deg, rgb(181, 154, 254), rgb(245, 189, 253)) fixed;
 }
 
@@ -75,13 +74,12 @@ body {
     font-size: 1.2rem;
     color: rgb(129, 101, 207);
     transition: .3s;
-}   
+}
 
 .hasValue ~ label, input:focus ~ label {
     top: -50%;
     font-size: .9rem;
 }
-
 
 
 .form span {
@@ -107,4 +105,105 @@ body {
 
 #live2dcanvas {
     border: 0 !important;
+}
+
+table{
+    width:100%;
+    table-layout: fixed;
+    border-radius: 10px;
+}
+thead{
+    background: -webkit-linear-gradient(left, rgb(245, 189, 253), #C9C5C5);
+    background: linear-gradient(to right, rgb(245, 189, 253), #C9C5C5);
+    border-radius: 10px;
+}
+tbody{
+    background: -webkit-linear-gradient(left, rgb(245, 189, 253), rgb(181, 154, 254));
+    background: linear-gradient(to right, rgb(245, 189, 253), rgb(181, 154, 254));
+    opacity: 0.7;
+    border-radius: 10px;
+}
+th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+section{
+    margin: 50px;
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#topcontainer{
+    width: 960px;
+    margin: 0 auto;
+}
+.nav{
+    margin: 5px;
+}
+.top{
+    height: 100px;
+    background-color: rgb(213, 213, 255);
+
+}
+.top_left{
+    float: left;
+}
+.top_left img{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    display: inline-block;
+}
+.top_name{
+    float: left;
+    line-height: 100px;
+    color: white;
+    font-size: 25px;
+}
+.top_right{
+    float: right;
+    color: white;
+    line-height: 100px;
+    margin-right: 40px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.nav ul{
+    font-size: 16px;
+    display: flex;
+    margin-left: 90px;
+    margin-right: 90px;
+    justify-content: space-around;
+}
+.nav li:hover{
+    color:orange;
+    border-bottom: 2px solid orange;
 }

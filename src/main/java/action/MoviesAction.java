@@ -28,6 +28,10 @@ public class MoviesAction extends ActionSupport implements RequestAware, ModelDr
         request.put("movies", moviesService.getAll());
         return "list";
     }
+    public String customer() {
+        request.put("movies", moviesService.getAll());
+        return "customer";
+    }
 
     private Integer id;
 
