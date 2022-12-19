@@ -6,6 +6,7 @@
     <!-- 所有匹配*.action的请求都由struts2处理 -->
     <constant name="struts.action.extension" value="action,,"/> <!-- 是否启用开发模式 -->
     <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="default" extends="struts-default" namespace="/">
         <interceptors>
             <interceptor-stack name="sshStack">
@@ -33,6 +34,9 @@
         <action name="login" class="testAction" method="{1}">
             <result name="LOGIN-SUCCESS" type="redirect">/movies-list</result>
             <result name="LOGIN-FAILED">login.jsp</result>
+        </action>
+        <action name="newslist" class="newsAction" method="newslist">
+            <result name="newslist">News.jsp</result>
         </action>
     </package>
 </struts>
