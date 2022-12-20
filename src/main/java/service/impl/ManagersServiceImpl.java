@@ -22,4 +22,8 @@ public class ManagersServiceImpl implements ManagersService {
     public String getPass(int id) {
         return managersDao.getPass(id);
     }
+
+    public ManagersEntity login(ManagersEntity manager) {
+        return managersDao.login(manager);
+    }
 }

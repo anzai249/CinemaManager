@@ -28,14 +28,18 @@
             <result name="list">Movies.jsp</result>
             <result name="success" type="redirect">/movies-list</result>
             <result name="input">movies-input.jsp</result>
-            <result name="" type="redirect">/movies-list</result>
         </action>
-        <action name="login" class="testAction" method="{1}">
+        <action name="login" class="testAction" method="login">
+            <result name="login">login.jsp</result>
             <result name="LOGIN-SUCCESS" type="redirect">/movies-list</result>
             <result name="LOGIN-FAILED">login.jsp</result>
         </action>
         <action name="newslist" class="newsAction" method="newslist">
             <result name="newslist">News.jsp</result>
+        </action>
+        <action name="newsinput" class="newsAction" method="newsinput">
+            <result name="input">movies-input.jsp</result>
+            <result name="success" type="redirect">/newslist</result>
         </action>
         <action name="movies-customer" class="moviesAction" method="customer">
             <result name="customer">movies-customer.jsp</result>

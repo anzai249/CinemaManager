@@ -12,4 +12,5 @@ public class BaseDao {
         return this.sessionFactory.getCurrentSession();
     }
 
+
 }

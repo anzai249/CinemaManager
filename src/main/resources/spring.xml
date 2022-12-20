@@ -43,16 +43,16 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="userDao" class="dao.ManagersDao">
+    <bean id="managersDao" class="dao.ManagersDao">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id="test" class="action.TestAction">
-        <property name="managersService" ref="userService"></property>
+    <bean id="testAction" class="action.TestAction">
+        <property name="managersService" ref="managersService"></property>
     </bean>
 
-    <bean id="userService" class="service.impl.ManagersServiceImpl">
-        <property name="managersDao" ref="userDao"></property>
+    <bean id="managersService" class="service.impl.ManagersServiceImpl">
+        <property name="managersDao" ref="managersDao"></property>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

@@ -30,7 +30,7 @@
         没有电影
     </s:if>
     <s:else>
-        <table cellpadding="0" cellspacing="0" border="0" align="center">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="movieListtable">
             <thead>
             <tr>
                 <td>ID</td>
@@ -39,7 +39,7 @@
                 <td>类别</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="movieList">
             <s:iterator value="#request.movies">
                 <tr>
                     <td>${id}</td>

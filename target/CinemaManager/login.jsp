@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,17 +17,30 @@
     <div class="panel">
         <div class="content login">
             <div class='form' id="fromLogin">
-
-                <template v-if='active === "login"'>
-                    <div class="input"><input :class='{ hasValue: loginForm.Username }' v-model='loginForm.Username'
-                                              type="text" name="Username" id="username"/><label
-                            for="username">用户名</label></div>
-                    <div class="input"><input :class='{ hasValue: loginForm.Password }' v-model='loginForm.Password'
-                                              type="password" name="Password" id="Password"/><label
-                            for="Password">密码</label></div>
-                </template>
-
-                <button type="submit" @click='submit'>登录</button>
+                <s:form action="login" method="post">
+                    <template v-if='active === "login"'>
+                        <div class="input" style="width:11.5rem;"><s:textfield
+                                v-model='loginForm.Username'
+                                type="text" name="id" id="username"></s:textfield><label
+                                for="username">用户名</label>
+                        </div>
+                        <div class="input" style="width:11.5rem;"><s:textfield
+                                v-model='loginForm.Password'
+                                type="password" name="password"
+                                id="password"></s:textfield><label
+                                for="Password">密码</label>
+                        </div>
+                    </template>
+                    <s:submit style="border: none; outline: none;
+    margin: 2.5rem 0 0;
+    width: 100%;
+    height: 3rem;
+    border-radius: 3rem;
+    background: linear-gradient(90deg, rgb(181, 154, 254), rgb(245, 189, 253));
+    box-shadow: 0 0 8px rgb(181, 154, 254);
+    cursor: pointer;
+    color: white;"></s:submit>
+                </s:form>
             </div>
         </div>
     </div>
