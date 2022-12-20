@@ -10,7 +10,7 @@
     <script src="https://cdn.staticfile.org/vue/2.6.9/vue.js"></script>
 </head>
 
-<body>
+<body style="display: flex;">
 <div id='app' class="container">
     <img src="./bg.jpg"/>
     <div class="panel">

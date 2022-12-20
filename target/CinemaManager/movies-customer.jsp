@@ -19,21 +19,18 @@
     </header>
     <div class="nav">
         <ul>
-            <li>电影列表</li>
-            <li>新闻列表</li>
-            <li>登录</li>
+            <a href="#">电影列表</a><a href="newslist">新闻列表</a><a href="login.jsp">登录</a>
         </ul>
     </div>
-    <hr style="margin: 5px;">
     <div class="content"></div>
     <footer class="bottom"/>
 </div>
-<div id='app' class="container" style="color: #fff; border-radius: 5px">
+<div id='app' class="container" style="color: #fff; border-radius: 5px; align-self: center; display: flex; width: 100%;">
     <s:if test="#request.movies == null || #request.movies.size() == 0">
         没有电影
     </s:if>
     <s:else>
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table cellpadding="0" cellspacing="0" border="0" align="center">
             <thead>
             <tr>
                 <td>ID</td>
