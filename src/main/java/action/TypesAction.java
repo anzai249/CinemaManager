@@ -3,32 +3,32 @@ package action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
-import model.NewsEntity;
+import model.TypesEntity;
 import org.apache.struts2.interceptor.RequestAware;
-import service.NewsService;
+import service.TypesService;
 
 import java.util.Map;
 
-public class TypesAction extends ActionSupport implements RequestAware, ModelDriven<NewsEntity>, Preparable {
+public class TypesAction extends ActionSupport implements RequestAware, ModelDriven<TypesEntity>, Preparable {
 
-    private NewsService newsService;
+    private TypesService typesService;
     //private TypesService typesService;
     private Map<String, Object> request;
 
-    public void setNewsService(NewsService newsService) {
-        this.newsService = newsService;
+    public void setTypesService(TypesService typesService) {
+        this.typesService = typesService;
     }
 
 //    public void setTypesService(TypesService typesService) {
 //        this.typesService = typesService;
 //    }
 
-    public String newslist() {
-        request.put("news", newsService.getAll());
-        return "newslist";
+    public String typeslist() {
+        request.put("types", typesService.getAll());
+        return "typeslist";
     }
     public String customer() {
-        request.put("news", newsService.getAll());
+        request.put("types", typesService.getAll());
         return "customer";
     }
 
@@ -39,7 +39,7 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
     }
 
     public String delete() {
-        newsService.delete(id);
+        typesService.delete(id);
         return SUCCESS;
     }
 
@@ -50,22 +50,22 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
 
     public void prepareInput() {
         if (id == null) {
-            model = new NewsEntity();
+            model = new TypesEntity();
         }else{
-            model = newsService.get(id);
+            model = typesService.get(id);
         }
     }
 
     public String save() {
-        newsService.saveOrUpdate(model);
+        typesService.saveOrUpdate(model);
         return SUCCESS;
     }
 
     public void prepareSave() {
         if (id == null) {
-            model = new NewsEntity();
+            model = new TypesEntity();
         }else{
-            model = newsService.get(id);
+            model = typesService.get(id);
         }
     }
 
@@ -73,11 +73,11 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
         this.request = arg0;
     }
 
-    public NewsEntity getModel() {
+    public TypesEntity getModel() {
         return model;
     }
 
-    private NewsEntity model;
+    private TypesEntity model;
 
     public void prepare() throws Exception {
 

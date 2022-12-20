@@ -37,6 +37,10 @@
         <action name="newslist" class="newsAction" method="newslist">
             <result name="newslist">News.jsp</result>
         </action>
+        <action name="newsinput" class="newsAction" method="newsinput">
+            <result name="input">movies-input.jsp</result>
+            <result name="success" type="redirect">/newslist</result>
+        </action>
         <action name="movies-customer" class="moviesAction" method="customer">
             <result name="customer">movies-customer.jsp</result>
         </action>

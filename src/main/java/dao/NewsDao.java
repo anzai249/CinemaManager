@@ -15,8 +15,8 @@ public class NewsDao extends BaseDao{
         String hql = "FROM model.NewsEntity";
         return getSession().createQuery(hql).list();
     }
-    public void saveOrUpdate(NewsEntity movie){
-        getSession().saveOrUpdate(movie);
+    public void saveOrUpdate(NewsEntity news){
+        getSession().saveOrUpdate(news);
     }
 
     public NewsEntity get(Integer id){
