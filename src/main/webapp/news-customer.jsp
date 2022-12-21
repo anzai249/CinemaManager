@@ -9,7 +9,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-    <title>所有电影</title>
+    <title>近期新闻</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -19,15 +19,15 @@
     </header>
     <div class="nav">
         <ul>
-            <a href="movies-list">编辑电影</a><a href="#">编辑新闻</a><a href="typeslistedit">编辑类型</a><a href="newsinput">添加</a>
+            <a href="movies-customer">电影列表</a><a href="#">新闻列表</a><a href="login.jsp">登录</a>
         </ul>
     </div>
     <div class="content"></div>
     <footer class="bottom"/>
 </div>
-<div id='app' class="container" style="color: #fff; border-radius: 5px">
+<div id='app' class="container" style="color: #fff; border-radius: 5px; align-self: center; display: flex; width: 100%;">
     <s:if test="#request.news == null || #request.news.size() == 0">
-        没有新闻
+        没有电影
     </s:if>
     <s:else>
         <table cellpadding="0" cellspacing="0" border="0" align="center" class="movieListtable">
@@ -36,17 +36,14 @@
                 <td>ID</td>
                 <td>名称</td>
                 <td>介绍</td>
-                <td>操作</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="movieList">
             <s:iterator value="#request.news">
                 <tr>
                     <td>${id}</td>
                     <td>${title}</td>
                     <td>${info}</td>
-                    <td><a href="newsdelete?id=${id}" onClick="return confirm('确定删除?');">删除</a>&nbsp;<a
-                            href="newsinput?id=${id}">编辑</a></td>
                 </tr>
             </s:iterator>
             </tbody>

@@ -6,23 +6,17 @@ import com.opensymphony.xwork2.Preparable;
 import model.NewsEntity;
 import org.apache.struts2.interceptor.RequestAware;
 import service.NewsService;
-//import service.TypesService;
 
 import java.util.Map;
 
 public class NewsAction extends ActionSupport implements RequestAware, ModelDriven<NewsEntity>, Preparable {
 
     private NewsService newsService;
-    //private TypesService typesService;
     private Map<String, Object> request;
 
     public void setNewsService(NewsService newsService) {
         this.newsService = newsService;
     }
-
-//    public void setTypesService(TypesService typesService) {
-//        this.typesService = typesService;
-//    }
 
     public String newslist() {
         request.put("news", newsService.getAll());
@@ -44,10 +38,10 @@ public class NewsAction extends ActionSupport implements RequestAware, ModelDriv
         return SUCCESS;
     }
 
-//    public String input() {
-//        request.put("types", typesService.getAll());
-//        return INPUT;
-//    }
+    public String input() {
+        request.put("news", newsService.getAll());
+        return INPUT;
+    }
 
     public void prepareInput() {
         if (id == null) {
@@ -59,6 +53,7 @@ public class NewsAction extends ActionSupport implements RequestAware, ModelDriv
 
     public String save() {
         newsService.saveOrUpdate(model);
+        id = null;
         return SUCCESS;
     }
 

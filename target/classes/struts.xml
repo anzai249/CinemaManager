@@ -35,14 +35,36 @@
             <result name="LOGIN-FAILED">login.jsp</result>
         </action>
         <action name="newslist" class="newsAction" method="newslist">
+            <result name="newslist">news-customer.jsp</result>
+        </action>
+        <action name="newslistedit" class="newsAction" method="newslist">
             <result name="newslist">News.jsp</result>
         </action>
-        <action name="newsinput" class="newsAction" method="newsinput">
-            <result name="input">movies-input.jsp</result>
-            <result name="success" type="redirect">/newslist</result>
+        <action name="newsinput" class="newsAction" method="input">
+            <result name="input">news-input.jsp</result>
+            <result name="success" type="redirect">/newslistedit</result>
+        </action>
+        <action name="newsdelete" class="newsAction" method="delete">
+            <result name="success" type="redirect">/newslistedit</result>
+        </action>
+        <action name="typeslistedit" class="typesAction" method="typeslist">
+            <result name="typeslist">Types.jsp</result>
+        </action>
+        <action name="typesinput" class="typesAction" method="input">
+            <result name="input">types-input.jsp</result>
+            <result name="success" type="redirect">/typeslistedit</result>
         </action>
         <action name="movies-customer" class="moviesAction" method="customer">
             <result name="customer">movies-customer.jsp</result>
+        </action>
+        <action name="news-save" class="newsAction" method="save">
+            <result name="success" type="redirect">/newslistedit</result>
+        </action>
+        <action name="types-save" class="typesAction" method="save">
+            <result name="success" type="redirect">/typeslistedit</result>
+        </action>
+        <action name="typesdelete" class="typesAction" method="delete">
+            <result name="success" type="redirect">/typeslistedit</result>
         </action>
     </package>
 </struts>

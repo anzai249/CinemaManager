@@ -59,6 +59,7 @@ public class MoviesAction extends ActionSupport implements RequestAware, ModelDr
 
     public String save() {
         moviesService.saveOrUpdate(model);
+        id = null;
         return SUCCESS;
     }
 

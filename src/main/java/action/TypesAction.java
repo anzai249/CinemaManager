@@ -12,24 +12,25 @@ import java.util.Map;
 public class TypesAction extends ActionSupport implements RequestAware, ModelDriven<TypesEntity>, Preparable {
 
     private TypesService typesService;
-    //private TypesService typesService;
     private Map<String, Object> request;
+    public TypesEntity getModel() {
+        return model;
+    }
+
+    public void setModel(TypesEntity model) {
+        this.model = model;
+    }
+
+    private TypesEntity model;
 
     public void setTypesService(TypesService typesService) {
         this.typesService = typesService;
     }
 
-//    public void setTypesService(TypesService typesService) {
-//        this.typesService = typesService;
-//    }
 
     public String typeslist() {
         request.put("types", typesService.getAll());
         return "typeslist";
-    }
-    public String customer() {
-        request.put("types", typesService.getAll());
-        return "customer";
     }
 
     private Integer id;
@@ -43,10 +44,10 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
         return SUCCESS;
     }
 
-//    public String input() {
-//        request.put("types", typesService.getAll());
-//        return INPUT;
-//    }
+    public String input() {
+        request.put("types", typesService.getAll());
+        return INPUT;
+    }
 
     public void prepareInput() {
         if (id == null) {
@@ -58,7 +59,9 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
 
     public String save() {
         typesService.saveOrUpdate(model);
+        id = null;
         return SUCCESS;
+
     }
 
     public void prepareSave() {
@@ -73,11 +76,7 @@ public class TypesAction extends ActionSupport implements RequestAware, ModelDri
         this.request = arg0;
     }
 
-    public TypesEntity getModel() {
-        return model;
-    }
 
-    private TypesEntity model;
 
     public void prepare() throws Exception {
 

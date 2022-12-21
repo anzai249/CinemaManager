@@ -13,12 +13,24 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div id="topcontainer">
+    <header class="top">
+        <div class="top_name">电影管理系统</div>
+    </header>
+    <div class="nav">
+        <ul>
+            <a href="movies-list">编辑电影</a><a href="#">编辑新闻</a><a href="typeslistedit">编辑类型</a><a href="newsinput">添加</a>
+        </ul>
+    </div>
+    <div class="content"></div>
+    <footer class="bottom"/>
+</div>
 <div id='app' class="container" style="color: #fff; border-radius: 5px">
     <s:if test="#request.news == null || #request.news.size() == 0">
         没有新闻
     </s:if>
     <s:else>
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="movieListtable">
             <thead>
             <tr>
                 <td>ID</td>
@@ -33,8 +45,8 @@
                     <td>${id}</td>
                     <td>${title}</td>
                     <td>${info}</td>
-                    <td><a href="movies-delete?id=${id}" onClick="return confirm('确定删除?');">删除</a>&nbsp;<a
-                            href="movies-input?id=${id}">编辑</a></td>
+                    <td><a href="newsdelete?id=${id}" onClick="return confirm('确定删除?');">删除</a>&nbsp;<a
+                            href="newsinput?id=${id}">编辑</a></td>
                 </tr>
             </s:iterator>
             </tbody>

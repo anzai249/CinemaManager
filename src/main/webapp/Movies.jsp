@@ -7,18 +7,31 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>所有电影</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div id="topcontainer">
+    <header class="top">
+        <div class="top_name">电影管理系统</div>
+    </header>
+    <div class="nav">
+        <ul>
+            <a href="#">编辑电影</a><a href="newslistedit">编辑新闻</a><a href="typeslistedit">编辑类型</a><a href="movies-input">添加</a>
+        </ul>
+    </div>
+    <div class="content"></div>
+    <footer class="bottom"/>
+</div>
 <div id='app' class="container" style="color: #fff; border-radius: 5px">
     <s:if test="#request.movies == null || #request.movies.size() == 0">
         没有电影
     </s:if>
     <s:else>
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="movieListtable">
             <thead>
             <tr>
                 <td>ID</td>

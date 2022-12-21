@@ -88,6 +88,10 @@
         <property name="typesService" ref="typesService"></property>
     </bean>
 
+    <bean id="typesAction" class="action.TypesAction">
+        <property name="typesService" ref="typesService"></property>
+    </bean>
+
     <bean id="newsAction" class="action.NewsAction">
         <property name="newsService" ref="newsService"></property>
     </bean>
