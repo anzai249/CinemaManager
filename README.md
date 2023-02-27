@@ -7,7 +7,6 @@ This is a simple SSH Cinema Manager, and the site is ugly.
 <p align="center">
 
 [![Donate](https://img.shields.io/badge/%24-Donate-ff69b4)](https://www.paypal.me/MoriTokugawa)
-![AppVeyor tests](https://img.shields.io/appveyor/tests/anzai249/CinemaManager)
 ![GitHub Repo stars](https://img.shields.io/github/stars/anzai249/CinemaManager?style=social)
 </p>
 
